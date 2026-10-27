@@ -55,6 +55,8 @@ adb shell pm grant net.dinglisch.android.taskerm android.permission.READ_LOGS
 
 ### 4. Copy the files
 
+To get the files, use the green Code button at the top of this page > Download ZIP, and unzip it.
+
 Copy everything in this repo's `Download` folder into your phone's Download folder, so you end up with:
 
 ```
