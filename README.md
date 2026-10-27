@@ -1,20 +1,33 @@
 # MemoMind glasses + Gemini Live
 
-Say "Hi Memo" to your MemoMind glasses and Gemini Live opens on your phone, listening through the glasses' mic and talking back through the glasses' speaker. A short chime tells you it's ready. Double press the glasses and pick Play/Pause to end it.
-
-It works from the lock screen too. There you get Gemini's voice assistant instead of Live, and if it needs the phone unlocked for something (opening Maps, reading your calendar), unlock and it carries on.
+Say "Hi Memo" to your MemoMind glasses and Gemini opens on your phone, listening through the glasses' mic and talking back through the glasses' speaker. A short chime tells you it's ready. Double press the glasses and pick Play/Pause to end it.
 
 It's free. You need Tasker and Shizuku, and a PC once for a single command.
 
 This is an unofficial setup. It isn't made by or connected to MemoMind or Google.
 
+## What you can do
+
+With the phone unlocked you get Gemini Live, so it's a proper back and forth conversation. Ask follow-up questions, change the subject, brainstorm or talk something through, all without saying the wake word again.
+
+With the phone locked you get Gemini's voice assistant, which answers one request at a time:
+
+- Make a call
+- Send a text
+- Ask a question and hear the answer
+- Add a task or reminder
+- Start navigation (it asks you to unlock, then opens Maps)
+- Check your calendar (it asks you to unlock, then reads it out)
+
+When it asks you to unlock, just unlock and it carries on.
+
 ## How it works
 
 1. "Hi Memo" makes the MemoMind app write a line to the phone's log. Tasker watches for it.
-2. Tasker runs a small script (through Shizuku) that closes Memo's own assistant, opens Gemini and presses its Live button.
+2. Tasker runs a small script (through Shizuku) that closes Memo's own assistant, opens Gemini and presses its Live button. On the lock screen it opens Gemini's voice assistant instead.
 3. Once Gemini is listening and the glasses' audio is connected, Tasker plays the chime.
 4. Memo is reopened a few seconds later so the glasses stay connected, and the phone goes back to where you were.
-5. Play/Pause on the glasses (or saying "Hi Memo" again) presses Gemini's End button.
+5. Play/Pause on the glasses presses Gemini's End button. (The glasses stop listening for "Hi Memo" while Gemini is using their mic, so the wake word can't end it.)
 
 ## What you need
 
@@ -82,7 +95,7 @@ The scripts expect exactly these paths.
 ## Using it
 
 - Say "Hi Memo". Wait for the chime, then talk.
-- To finish: double press the glasses and choose Play/Pause, or say "Hi Memo" again.
+- To finish: double press the glasses and choose Play/Pause.
 - Live times out by itself after a minute or two of silence.
 - Locked phone: same wake word. You get Gemini's voice assistant rather than Live, and the chime still tells you when to talk.
 
@@ -91,7 +104,7 @@ The scripts expect exactly these paths.
 - The first start after a restart is slower (about 3 seconds before the chime). After that it's usually under 2.
 - The Memo app pops up for about a second when it reopens. That's how it reconnects to the glasses.
 - Ending Live shows Gemini on screen for a couple of seconds while the End button is pressed.
-- The stop button relies on the phone logging the glasses' Play/Pause press. If Play/Pause doesn't end Live on your phone, say "Hi Memo" again instead.
+- The stop button relies on the phone logging the glasses' Play/Pause press. If Play/Pause doesn't end Live on your phone, tap End on Gemini's screen instead, or let Live time out.
 - The End button is found by its English label ("End Live mode"). On a phone in another language, ending still works but closes the Google app instead, which makes the next start a bit slower.
 - Gemini app updates could move or rename the Live button. If "Hi Memo" opens Gemini but Live never starts, that's the likely cause.
 - The chime is a Google navigation sound that ships inside the MemoMind app. Swap in any short sound you like by replacing `ready.wav`.
